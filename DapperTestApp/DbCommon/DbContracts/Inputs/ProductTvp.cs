@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using DapperTestApp.DbCommon.DbContracts.Enums;
 
 namespace DapperTestApp.DbCommon.DbContracts.Inputs
 {

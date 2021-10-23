@@ -204,7 +204,7 @@ namespace DapperTestApp.DbCommon.Repositories
                 .QueryAsync(
                     sql: proc,
                     map: MapSelectedShipments(lookupPairs),
-                    splitOn: "product_id",
+                    splitOn: "shipment_id",
                     param: parameters,
                     commandType: CommandType.StoredProcedure))
             .AsQueryable();
@@ -222,6 +222,7 @@ namespace DapperTestApp.DbCommon.Repositories
 
                     if (sh is not null)
                     {
+                        sh.ProductId = ps.ProductId;
                         (productShipments.Shipments ??= new List<Shipment>()).AsList().Add(sh);
                     }
 

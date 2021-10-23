@@ -1,5 +1,4 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using System.Threading.Tasks;
 using DapperTestApp.DbCommon.Options;
 using Microsoft.Extensions.Options;

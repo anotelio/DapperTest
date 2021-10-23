@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
 using System.Threading.Tasks;
 using DapperTestApp.DbCommon.DbContracts.Enums;
 using DapperTestApp.DbCommon.DbContracts.Inputs;
-using DapperTestApp.DbCommon.DbContracts.Outputs;
 using DapperTestApp.DbCommon.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -180,7 +178,7 @@ namespace DapperTestApp.Controllers
             // you can use async DbConnection methods and using if you want
             using var cnn = this.repository.RetailDbSession.Connection;
             cnn.Open();
-            using var tran = this.repository.RetailDbSession.Connection.BeginTransaction();
+            using var tran = cnn.BeginTransaction();
 
             var productsTask = this.repository.ProductsGet(tran);
             var shipmentsTask = this.repository.ShipmentsGet(tran);
