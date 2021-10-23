@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperTestApp", "DapperTestApp\DapperTestApp.csproj", "{2089FA4B-FC9B-4471-8F6E-DB6A630D0322}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{A7F4287D-73C1-4D58-9B42-63B38F038298}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\product_shipment_db.sql = scripts\product_shipment_db.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2089FA4B-FC9B-4471-8F6E-DB6A630D0322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2089FA4B-FC9B-4471-8F6E-DB6A630D0322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2089FA4B-FC9B-4471-8F6E-DB6A630D0322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2089FA4B-FC9B-4471-8F6E-DB6A630D0322}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DC94CC0-C667-4034-9D0E-20E8C529B98C}
+	EndGlobalSection
+EndGlobal
