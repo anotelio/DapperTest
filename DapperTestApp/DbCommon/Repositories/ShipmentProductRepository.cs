@@ -18,7 +18,7 @@ namespace DapperTestApp.DbCommon.Repositories
     {
         public ShipmentProductRepository(IRetailDbSession retailDbSession)
         {
-            this.RetailDbSession = retailDbSession;
+            RetailDbSession = retailDbSession;
         }
 
         public IRetailDbSession RetailDbSession { get; }
