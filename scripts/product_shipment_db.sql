@@ -115,7 +115,7 @@ CREATE OR ALTER PROCEDURE [sale].[products_get]
 AS
 BEGIN
 	SET NOCOUNT ON;
-
+	waitfor delay '00:00:04'
 	SELECT
 		p.[product_id]		AS ProductId,
 		p.[product_name]	AS ProductName,

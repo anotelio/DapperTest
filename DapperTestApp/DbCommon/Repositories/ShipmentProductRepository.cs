@@ -374,7 +374,8 @@ namespace DapperTestApp.DbCommon.Repositories
         public async Task<IEnumerable<Shipment>> ShipmentsGet(IDbTransaction dbTransaction)
         {
             const string query =
-                @"SELECT
+                @"waitfor delay '00:00:04';
+                SELECT
                     s.[shipment_id]       AS ShipmentId,
                     s.[product_id]        AS ProductId,
                     s.[quantity]          AS Quantity,

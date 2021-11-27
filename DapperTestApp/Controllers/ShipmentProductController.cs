@@ -190,5 +190,21 @@ namespace DapperTestApp.Controllers
 
             return new JsonResult(new { products, shipments });
         }
+
+        [HttpGet("get_all_dbsession_methods_with_one_tran")]
+        public async Task<IActionResult> GetAllDbSessionMethodsWithOneTran()
+        {
+            // run tasks in parallel and open 2 sessions, dispose and commit automatically
+            await using var tran =
+                await this.repository.RetailDbSession.OpenAndBeginTransactionAsync();
+
+            var productsTask = this.repository.ProductsGet(tran);
+            var shipmentsTask = this.repository.ShipmentsGet(tran);
+
+            var products = await productsTask;
+            var shipments = await shipmentsTask;
+
+            return new JsonResult(new { products, shipments });
+        }
     }
 }
