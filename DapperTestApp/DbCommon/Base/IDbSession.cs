@@ -11,9 +11,14 @@ namespace DapperTestApp.DbCommon.Base
 
         public async Task<DbTransaction> OpenAndBeginTransactionAsync()
         {
-            await using var cnn = this.Connection;
+            var cnn = this.Connection;
             await cnn.OpenAsync();
             return await cnn.BeginTransactionAsync();
+        }
+
+        public async ValueTask DisposeAsync(DbTransaction dbTransaction)
+        {
+            await dbTransaction.Connection.DisposeAsync();
         }
     }
 }

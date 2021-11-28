@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DapperTestApp.DbCommon.DbContracts.Enums;
 using DapperTestApp.DbCommon.DbContracts.Inputs;
 using DapperTestApp.DbCommon.Repositories;
+using DapperTestApp.DbCommon.Sessions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DapperTestApp.Controllers
@@ -194,7 +195,10 @@ namespace DapperTestApp.Controllers
         [HttpGet("get_all_dbsession_methods_with_one_tran")]
         public async Task<IActionResult> GetAllDbSessionMethodsWithOneTran()
         {
-            // run tasks in parallel and open 2 sessions, dispose and commit automatically
+            // run tasks in parallel and open 2 sessions
+            // with using on cnn in OpenAndBeginTransactionAsync method
+            // also dispose and commit automatically
+            // withous using on cnn need to commit transaction and dispose connection
             await using var tran =
                 await this.repository.RetailDbSession.OpenAndBeginTransactionAsync();
 
@@ -203,6 +207,8 @@ namespace DapperTestApp.Controllers
 
             var products = await productsTask;
             var shipments = await shipmentsTask;
+
+            await this.repository.RetailDbSession.DisposeAsync(tran);
 
             return new JsonResult(new { products, shipments });
         }
